@@ -28,7 +28,7 @@ the error in `stripPrefix()` seems to be specific to IE.
 
 ### Feature tests
 
-The summary table is also useful if you want to (ab-)use karma to run 
+The summary table is also useful if you want to (ab-)use karma to run
 feature tests, like checking which standard string functions are available:
 
 ![screenshot](examples/features/screenshot.png)
@@ -50,14 +50,16 @@ With yarn:
 ```javascript
 module.exports = function(config) {
    config.set({
-      reporters: ['progress', 'summary'],
-      summaryReporter: {
+      reporters: ['progress', 'summary-optional-console'],
+      summaryOptionalConsoleReporter: {
          // 'failed', 'skipped' or 'all'
          show: 'failed',
          // Limit the spec label to this length
          specLength: 50,
          // Show an 'all' column as a summary
-         overviewColumn: true
+         overviewColumn: true,
+         // Print console log/error messages
+         consoleLogs: true,
       }
    });
 };
@@ -106,5 +108,3 @@ mochaReporter: { output: 'minimal' }
 ```
 
 [1]: https://github.com/litixsoft/karma-mocha-reporter
-
-

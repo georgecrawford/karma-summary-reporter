@@ -1,33 +1,29 @@
 {
-  "name": "karma-summary-reporter",
-  "version": "1.5.1",
-  "description": "Displays a summary of tested browsers and failed testcases after a test run.",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha test/reporter.spec.js"
-  },
-  "author": "Stephan Hohe <sth.dev@tejp.de>",
-  "license": "MIT",
-  "peerDependencies": {
-    "karma": "^1.2.0 || 2.x || 3.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sth/karma-summary-reporter.git"
-  },
-  "keywords": [
-    "karma-plugin",
-    "karma-reporter"
-  ],
-  "bugs": {
-    "url": "https://github.com/sth/karma-summary-reporter/issues"
-  },
-  "homepage": "https://github.com/sth/karma-summary-reporter#readme",
-  "devDependencies": {
-    "chai": "^3.5.0 || 4.x",
-    "mocha": "^3.0.2 || 4.x || 5.x"
-  },
-  "dependencies": {
-    "chalk": "^1.1.3 || 2.x"
-  }
+    "name": "karma-summary-optional-console-reporter",
+    "version": "1.5.1",
+    "description": "Displays a summary of tested browsers and failed testcases after a test run.",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha test/reporter.spec.js"
+    },
+    "author": "George Crawford <g.o.crawford@gmail.com>, Stephan Hohe <sth.dev@tejp.de>",
+    "license": "MIT",
+    "peerDependencies": {
+        "karma": "^1.2.0 || 2.x || 3.x"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:georgecrawford/karma-summary-reporter.git"
+    },
+    "keywords": [
+        "karma-plugin",
+        "karma-reporter"
+    ],
+    "devDependencies": {
+        "chai": "^3.5.0 || 4.x",
+        "mocha": "^3.0.2 || 4.x || 5.x"
+    },
+    "dependencies": {
+        "chalk": "^1.1.3 || 2.x"
+    }
 }
