@@ -60,6 +60,8 @@ module.exports = function(config) {
          overviewColumn: true,
          // Print console log/error messages
          consoleLogs: true,
+         // Print a summary line for each browser
+         browserSummary: true,
       }
    });
 };

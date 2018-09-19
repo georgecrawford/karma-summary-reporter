@@ -13,17 +13,26 @@ function strmul(s, n) {
     return r;
 }
 
-var SummaryReporter = function(baseReporterDecorator, config) {
+var SummaryOptionalConsoleReporter = function(baseReporterDecorator, config) {
     baseReporterDecorator(this);
 
     // Configuration
-    config.summaryReporter = config.summaryReporter || {};
-    var show = config.summaryReporter.show || 'failed';
-    var specLength = config.summaryReporter.specLength || 50;
+    config.summaryOptionalConsoleReporter =
+        config.summaryOptionalConsoleReporter || {};
+    var show = config.summaryOptionalConsoleReporter.show || 'failed';
+    var specLength = config.summaryOptionalConsoleReporter.specLength || 50;
     var overviewColumn =
-        config.summaryReporter.overviewColumn === false ? false : true;
+        config.summaryOptionalConsoleReporter.overviewColumn === false
+            ? false
+            : true;
     var consoleLogs =
-        config.summaryReporter.consoleLogs === false ? false : true;
+        config.summaryOptionalConsoleReporter.consoleLogs === false
+            ? false
+            : true;
+    var browserSummary =
+        config.summaryOptionalConsoleReporter.browserSummary === false
+            ? false
+            : true;
 
     // We use our own instance, respecting config.color
     var chalk = new chalk_global.constructor({enabled: config.colors});
@@ -115,11 +124,13 @@ var SummaryReporter = function(baseReporterDecorator, config) {
         this.writeCommonMsg(chalk.bold(chalk.underline('SUMMARY')) + '\n');
 
         // Browser overview
-        browsers.forEach(function(browser, i) {
-            this.writeCommonMsg(
-                ' ' + i + ': ' + this.renderBrowser(browser) + '\n'
-            );
-        }, this);
+        if (browserSummary) {
+            browsers.forEach(function(browser, i) {
+                this.writeCommonMsg(
+                    ' ' + i + ': ' + this.renderBrowser(browser) + '\n'
+                );
+            }, this);
+        }
 
         if (!specorder.length) {
             this.writeCommonMsg(chalk.red('No tests did run in any browsers.'));
@@ -190,8 +201,11 @@ var SummaryReporter = function(baseReporterDecorator, config) {
     };
 };
 
-SummaryReporter.$inject = ['baseReporterDecorator', 'config'];
+SummaryOptionalConsoleReporter.$inject = ['baseReporterDecorator', 'config'];
 
 module.exports = {
-    'reporter:summary-optional-console': ['type', SummaryReporter],
+    'reporter:summary-optional-console': [
+        'type',
+        SummaryOptionalConsoleReporter,
+    ],
 };
