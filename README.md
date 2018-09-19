@@ -1,4 +1,4 @@
-# karma-summary-reporter
+# karma-summary-optional-console-reporter
 
 Show a table detailing the test results for all connected browsers at the end
 of a test run. This gives a better overview which browsers are broken than the
@@ -39,11 +39,11 @@ We can see that IE is lacking some features here.
 
 With npm:
 
-    npm install --save-dev karma-summary-reporter
+    npm install --save-dev karma-summary-optional-console-reporter
 
 With yarn:
 
-    yarn add --dev karma-summary-reporter
+    yarn add --dev karma-summary-optional-console-reporter
 
 ## Config
 
